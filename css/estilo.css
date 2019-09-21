@@ -1,0 +1,324 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    line-height: 1.5;
+    background-color: #f4f4f4;
+}
+
+/* Definição do grid para mobiles! */
+
+div#main-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+    "banner"
+    "contato"
+    "boxes";
+}
+
+
+.dark {
+    background: #35424a;
+    color: #ffffff;
+    padding: 15px;
+    margin: 10px auto;
+}
+
+/* Estilo da Barra de Navegão*/
+div.nav-bar{
+    width: 100%;
+    margin: auto;
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+    "logo"
+    "nav";
+    justify-items: center;
+    align-items: center;
+}
+
+header {
+    max-width: 1600px;
+    background-color: #35424a;
+    color: #ffffff;
+    padding-top: 30px;
+    border-bottom: 3px solid #e8491d;
+}
+
+.logo {
+    grid-area: logo;
+}
+
+header .destaque, .atual a {
+    color: #e8491d;
+    font-weight: bold;
+}
+
+header h1 {
+    margin-top: 0;
+    text-align: center
+}
+
+header nav {
+    grid-area: nav;
+    text-align: center;
+    margin-bottom: 18px
+}
+
+header ul {
+    margin: 0;
+    padding: 0;
+}
+
+header li {
+    display: inline-block;
+    padding: 0 20px;
+}
+
+header a {
+    text-decoration: none;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-size: 16px;
+}
+
+header a:hover {
+    font-weight: bold;
+    color: #cccccc
+}
+
+/* Estilo do banner */
+section#banner {
+    grid-area: banner;
+    width: 100%;
+    background: url('../img/banner.jpg') no-repeat 0 -400px;
+    text-align: center;
+    color: #ffffff;
+}
+
+section#banner h1 {
+    margin-top: 100px;
+    font-size: 55px;
+    margin-bottom: 10px
+    
+}
+
+section#banner p {
+    font-size: 20px
+}
+
+/* Estilo da área de contatos*/
+section#contato {
+    grid-area: contato;
+    padding: 20px 10%;
+    color: #ffffff;
+    background: #35424a;
+}
+
+#contato div {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas: "title"
+    "form";
+}
+
+#contato h1{
+    grid-area: title;
+    text-align: center
+}
+
+#contato form{
+    grid-area: form
+}
+
+#contato input[type="email"] {
+    padding: 4px;
+    height: 24px;
+    width: 100%;
+    margin-bottom: 5px;
+
+}
+
+.button_1 {
+    width: 100%;
+    height: 38px;
+    background: #e8491d;
+    border: none;
+    padding: auto 20px;
+    color: #ffffff
+}
+
+
+/* Estilo dos boxes! */
+section#boxes {
+    margin: 20px auto;
+    grid-area: boxes;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+    "box1"
+    "box2"
+    "box3"
+}
+
+.box1 {
+    grid-area: box1;
+}
+
+.box2 {
+    grid-area: box2;
+}
+
+.box3 {
+    grid-area: box3;
+}
+
+section#boxes div {
+    display: block;
+    text-align: center;
+    width: 75%;
+    justify-self: center
+}
+
+section#boxes img {
+    width: 90px
+}
+
+
+/* Estilo padão do rodapé */
+footer{
+    padding: 20px;
+    background: #e8491d;
+    color: #ffffff;
+    text-align: center;
+}
+
+/* Estilo para a página About e Services */
+
+/* Página About */
+.gridAbout-Services{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+    "article"
+    "sidebar";
+}
+
+article#principal{
+    grid-area: article;
+    text-align: justify;
+    margin: auto 15px;   
+}
+
+aside{
+    grid-area: sidebar;
+    text-align: center;    
+    margin: auto 15px;
+}
+
+/* Página Services */
+ul.services {
+    padding: 5px
+}
+ul.services li {
+    margin: 10px;
+    list-style: none;
+    padding: 20px;
+    border: solid 1px #cccccc;
+    background: #e6e6e6;
+}
+
+form#mensagems input, textarea{
+    margin: auto;
+    width: 90%;
+    padding: 5px;
+}
+
+
+
+@media screen and (min-width: 800px){
+    /* Grid principal para telas de PC */
+    div#main-grid {
+        display: grid;
+        grid-template-columns: 1fr repeat(4, 400) 1fr;
+        grid-template-areas:
+        "banner banner banner banner banner banner"
+        "contato contato contato contato contato contato"
+        ". boxes boxes boxes boxes .";
+    }
+
+    div.nav-bar{
+        width: 90%;
+        margin: auto;
+        display: grid;
+        grid-template-columns: 300px 1fr;
+        grid-template-areas: "logo nav";
+        justify-items: end;
+        align-items: center
+    }
+
+    .nav-bar nav {
+        margin-right: 50px;
+        margin-top: 10px;
+    }
+
+    /* Banner */
+
+    section#banner {
+        height: 400px;
+        background: url('../img/banner.jpg') no-repeat 0 -400px;
+    }
+    
+    section#boxes {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-areas: "box1 box2 box3";
+    }
+
+    /* Contatos */
+    #contato div{
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: "title form";
+    }
+
+    #contato h1{
+        grid-area: title;
+        justify-self: start;
+    }
+
+    #contato form{
+        align-self: center;
+        justify-self: end;
+    }
+    
+    #contato input[type="email"] {
+        padding: 4px;
+        height: 24px;
+        width: 250px;
+    }
+    
+    .button_1 {
+        width: 90px;
+    }
+
+
+    /* Estilo para a página About e Services */
+    .gridAbout-Services {
+        max-width: 1600px;
+        grid-template-columns: 1fr 700px 400px 1fr;
+        grid-template-areas: ". article sidebar .";
+        grid-gap: 60px
+    }
+    
+    article#principal{
+        justify-self: start;
+        width: 90%
+    }
+    
+    aside{
+        width: 78%;
+        margin-right: 50px;
+    }
+
+
+}
